@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync } from "fs";
 import { readdir } from "fs/promises";
 import path from "path";
 
-const TARGET_FILE = "../nextjs/generated/circuits.json";
+const TARGET_FILE = "./generated/circuits.json";
 const CIRCUITS_FOLDER_PATH = "./circuits";
 
 function getData(project: string) {
