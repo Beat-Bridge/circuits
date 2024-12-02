@@ -1,6 +1,6 @@
 [package]
-name = "cliam_artist"
-type = "bin"
+name = "claim_library"
+type = "lib"
 authors = [""]
 compiler_version = "0.38.0"
 

@@ -1,16 +1,21 @@
 use dep::std;
+use claim_library::utils;
 
-#[oracle(can_claim_top_tracks)]
-unconstrained fn can_claim_top_tracks(auth: str<350>,track_id:str<22>,limit:u8, range:u8 ) -> bool {}
+#[oracle(call_can_claim_top_tracks)]
+unconstrained fn can_claim_top_tracks(_auth: str<350>,_track_id:str<22>,_time_range:u8, _list_range:u8 ) -> bool {}
 
-unconstrained fn call_can_claim_top_tracks(auth: str<350>,track_id:str<22>,limit:u8, range:u8 ) -> bool {
-    can_claim_top_tracks(auth,track_id,limit, range)
+unconstrained fn call_can_claim_top_tracks(auth: str<350>,track_id:str<22>,time_range:u8, list_range:u8 ) -> bool {
+    can_claim_top_tracks(auth,track_id,time_range, list_range)
 }
+
 fn main(auth: str<350>,track_id:str<22>,limit:u8, range:u8) {
+    let eth_address = [ 0x0a, 0x66, 0xfb, 0x34, 0xd3, 0x0c, 0x2b, 0x88, 0x9a, 0x12, 0xb1, 0xf8, 0x15, 0x73, 0xe4, 0x7f, 0x37, 0xde, 0x34, 0x0e ];
+    let actual = utils::construct_claim_payload(eth_address, true);
     let claim_result = call_can_claim_top_tracks(auth,track_id,limit, range);
-    //assert(claim_result, true);
-   // println(claim_result);
+    // assert(claim_result == true);
 }
+
+
 
 #[test]
 fn test_main() {
