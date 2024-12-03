@@ -2,8 +2,11 @@ import { readFileSync, writeFileSync } from "fs";
 import { readdir } from "fs/promises";
 import path from "path";
 
-const TARGET_FILE = "./generated/circuits.json";
 const CIRCUITS_FOLDER_PATH = "./circuits";
+
+function createTargetFile(name: string) {
+  return `./generated/${name}.json`;
+}
 
 function getData(project: string) {
   const path = `${CIRCUITS_FOLDER_PATH}/${project}/target/${project}.json`;
@@ -21,8 +24,9 @@ async function exportAsJson() {
   const circuits = await readdir(CIRCUITS_FOLDER_PATH);
   for (const name of circuits) {
     data[name] = getData(name);
+    const target = createTargetFile(name);
+    writeFileSync(path.resolve(target), JSON.stringify(data, null, 2));
   }
-  writeFileSync(path.resolve(TARGET_FILE), JSON.stringify(data, null, 2));
 }
 
 exportAsJson();
