@@ -1,6 +1,6 @@
 // use claim_library::utils;
 
-#[oracle(call_can_claim_top_tracks)]
+#[oracle(can_claim_top_tracks)]
 unconstrained fn can_claim_top_tracks(_auth: str<350>,_track_id:str<22>,_time_range:u8, _list_range:u8 ) -> bool {}
 
 unconstrained fn call_can_claim_top_tracks(auth: str<350>,track_id:str<22>,time_range:u8, list_range:u8 ) -> bool {
