@@ -12,9 +12,11 @@
     "lint-staged": "eslint --config ./.eslintrc.json --ignore-path ./.eslintignore"
   },
   "dependencies": {
+    "axios": "^1.7.9",
     "dotenv": "^16.0.3",
     "envfile": "^6.18.0",
-    "json-rpc-2.0": "^1.7.0"
+    "json-rpc-2.0": "^1.7.0",
+    "uuid": "^11.0.3"
   },
   "devDependencies": {
     "@noir-lang/backend_barretenberg": "0.31.0",

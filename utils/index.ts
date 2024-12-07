@@ -1,3 +1,4 @@
+import { v4 } from "uuid";
 export const makeRunCommand = (cwd?: string) => async (command: string) => {
   const { exec } = await import("child_process");
   const { promisify } = await import("util");
@@ -20,3 +21,11 @@ export const makeRunCommand = (cwd?: string) => async (command: string) => {
     throw error;
   }
 };
+
+
+export function generateFixedLengthUUID(length: number) {
+  if (length > 36) {
+    throw new Error("Length cannot exceed 36 for a UUID.");
+  }
+  return v4().toString().replace(/-/g, "").slice(0, length);
+}
