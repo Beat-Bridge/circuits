@@ -6,7 +6,7 @@ import circuit from "../generated/cliam_recently_played.json";
 import { foreignCallHandler, createKey } from "../utils/rpc";
 import { delay, generateFixedLengthUUID } from "../utils";
 
-describe("Noir Circuit Testing", async () => {
+describe("Noir Circuit Testing for claim_recently_played", async () => {
   let noir: Noir;
   let backend: BarretenbergBackend;
   //let correctProof: ProofData;
@@ -30,8 +30,8 @@ describe("Noir Circuit Testing", async () => {
     const input = {
       key: randomKey,
       track_id: "4B4CQ84BBpHK5d02cWKUb0",
-      limit: 0,
-      range: 10,
+      after: 1732881599000,
+      play_times: 2,
     };
 
     await createKey(randomKey, auth);

@@ -6,7 +6,7 @@ import circuit from "../generated/claim_track.json";
 import { foreignCallHandler, createKey } from "../utils/rpc";
 import { delay, generateFixedLengthUUID } from "../utils";
 
-describe("Noir Circuit Testing", async () => {
+describe("Noir Circuit Testing for claim_track", async () => {
   let noir: Noir;
   let backend: BarretenbergBackend;
   //let correctProof: ProofData;
