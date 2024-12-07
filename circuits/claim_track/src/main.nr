@@ -1,27 +1,26 @@
 // use claim_library::utils;
 
 #[oracle(can_claim_top_tracks)]
-unconstrained fn can_claim_top_tracks(_auth: str<350>,_track_id:str<22>,_time_range:u8, _list_range:u8 ) -> bool {}
+unconstrained fn can_claim_top_tracks(_key: str<16>,_track_id:str<22>,_time_range:u8, _list_range:u8 ) -> Field {}
 
-unconstrained fn call_can_claim_top_tracks(auth: str<350>,track_id:str<22>,time_range:u8, list_range:u8 ) -> bool {
-    can_claim_top_tracks(auth,track_id,time_range, list_range)
-   //true
+unconstrained fn call_can_claim_top_tracks(key: str<16>,track_id:str<22>,time_range:u8, list_range:u8 ) -> Field {
+    can_claim_top_tracks(key,track_id,time_range, list_range)
 }
 
-fn main(auth: str<350>,track_id:str<22>,limit:u8, range:u8) {
-    let claim_result = call_can_claim_top_tracks(auth,track_id,limit, range);
-    assert(claim_result == true);
+fn main(key: str<16>,track_id:str<22>,limit:u8, range:u8) {
+    let claim_result =   unsafe {call_can_claim_top_tracks(key,track_id,limit, range)};
+    assert(claim_result  == 1);
 }
 
 
 
 #[test]
 fn test_main() {
-    let auth: str<350> ="BQDWSolX6qEJw8zVDOcVShEHoA-w_QAPjgBxToygok-lnWwSiiQCz-drwLVhJVOw5sH37LmYsYJQYRccmBC8eACO-hpe6dwsCZzkLf-j68dblFQ0ucm4T7HW6RIZpxDjU40GVmiRsQouBCarjT9RG8tH5FD8-FW4bYQDRyHgp3VnM3ojYAbIVk2-IHvXTvisTihM-PRJqh16U3engMjw6ZG6MXzIEgE47f04vlvWKXqyJKNSU_AwSLuBhZdOv-ICIWKX3qJuc0SGmNyrzgr0ze_nvSxskNhmEZh701LRdbwoXEldhpNJtoNGcBciQPaBbLnsCfcJgKSYryvoxgU8jSw1qmc   ";
+    let key: str<16> ="2a4d2d1fbda14398";
     let track_id:str<22> = "4B4CQ84BBpHK5d02cWKUb0";
     let limit:u8 = 0;
     let range:u8 = 10; 
     main(
-      auth,track_id,limit,range
+      key,track_id,limit,range
     );
 }

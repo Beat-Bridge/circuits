@@ -2,7 +2,7 @@
 name = "claim_track"
 type = "bin"
 authors = [""]
-compiler_version = "0.31.0"
+compiler_version = "0.38.0"
 
 [dependencies]
 claim_library = { path = "../../library" }
