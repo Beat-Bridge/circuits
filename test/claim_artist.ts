@@ -2,7 +2,7 @@ import { expect } from "chai";
 import { BarretenbergBackend, BarretenbergVerifier as Verifier } from "@noir-lang/backend_barretenberg";
 import { Noir } from "@noir-lang/noir_js";
 import { ProofData } from "@noir-lang/types";
-import circuit from "../generated/claim_track.json";
+import circuit from "../generated/cliam_artist.json";
 import { foreignCallHandler, createKey } from "../utils/rpc";
 import { delay, generateFixedLengthUUID } from "../utils";
 
@@ -38,5 +38,7 @@ describe("Noir Circuit Testing", async () => {
     await delay(1000);
     const { witness } = await noir.execute(input, foreignCallHandler);
     console.log(witness);
+    // correctProof = await backend.generateProof(witness);
+    //expect(correctProof.proof instanceof Uint8Array).toBeTrue;
   });
 });

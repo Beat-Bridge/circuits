@@ -29,3 +29,7 @@ export function generateFixedLengthUUID(length: number) {
   }
   return v4().toString().replace(/-/g, "").slice(0, length);
 }
+
+export function delay(ms: number) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}

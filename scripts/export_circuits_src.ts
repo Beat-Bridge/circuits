@@ -25,7 +25,7 @@ async function exportAsJson() {
   for (const name of circuits) {
     data[name] = getData(name);
     const target = createTargetFile(name);
-    writeFileSync(path.resolve(target), JSON.stringify(data, null, 2));
+    writeFileSync(path.resolve(target), JSON.stringify(data[name], null, 2));
   }
 }
 
