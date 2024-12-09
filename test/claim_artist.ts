@@ -1,7 +1,6 @@
 import { expect } from "chai";
-import { BarretenbergBackend, BarretenbergVerifier as Verifier } from "@noir-lang/backend_barretenberg";
+import { BarretenbergBackend } from "@noir-lang/backend_barretenberg";
 import { Noir } from "@noir-lang/noir_js";
-import { ProofData } from "@noir-lang/types";
 import circuit from "../generated/cliam_artist.json";
 import { foreignCallHandler, createKey } from "../utils/rpc";
 import { delay, generateFixedLengthUUID } from "../utils";
