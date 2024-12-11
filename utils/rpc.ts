@@ -41,7 +41,7 @@ export const foreignCallHandler = async (name: string, input: any[]) => {
     return [oracleReturn.values[0]];
   } catch (error) {
     console.error(error);
-    return ["0"];
+    return ["1"];
   }
 };
 

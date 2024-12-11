@@ -24,18 +24,17 @@ describe("Noir Circuit Testing for claim_artist", async () => {
 
   it("should generate valid proof for correct input", async () => {
     const auth =
-      "BQCQRQl-Hd-qHYM7UTvgXSiYjuFdxFDWiiJQ5KGJPHcgwNC8S_UwdcHWQAIVFNrKUmqnvMuvh-0p11ju5_f8BGGd2NnoVmGeaVLCRsIh2UVtVTWEmSmJnj37H41t0b12PU9Do5vPjMtavI54nHK5eAltrp2maYIRxUnwX_nIeutmrvD2D_dUF-oRrQRdkTUmt0eYe-wSLy-5VBlQRrZGY1pCwGRZwIs4JIWEcQNX_nOCOiKisrPO8HS7GRVjUiknHzHBUKJfsIvT9FBYlwpvYMOSh4dLyoTU_fpHU9kItlLQIbnCRJSAMq7YKI8CZDC2NGMm6PogqspVeqI8Cwlf5gbfPfQ";
+      "Bearer BQCnFi6CMtteyhjWE1CuQeMjYGFQdlOqA6MKjbsLLaRDCWeSrxAcybYDnUNNXi3MkdT2xE56pnXUtIDu8K0X1V2znUskFoUUwYgAvrl3_sGDGWh32eYWjd3-4dp383VYGlHS5Qr7ix18409jX_1V4ouo7sIAB7HwCYcF4GgNzIlpgJjcMdO6hPwexlacoY0aFC7U-BXF9GKKxGMYx7E5_Jo14fW3NPo0rdtfOcQnKBX0NshXFyNKmVsOvQpgs7RhRtofSaUPmZ8dfzLR6EJrpOiHUctuZAI5ahxVap3rYxk76BgBueFIgPKhnBSJve6Ay-3VCHPJBUB2j1Ol5tiE_zf9ecw";
     const input = {
       key: randomKey,
-      artist_id: "4B4CQ84BBpHK5d02cWKUb0",
+      artist_id: "12kjvw4e3gLp6qVHO65n7W",
       limit: 0,
       range: 10,
     };
 
-    await createKey(randomKey, auth);
-    await delay(1000);
+    const key = await createKey(randomKey, auth);
     const { witness } = await noir.execute(input, foreignCallHandler);
-    console.log(witness);
+    console.log(witness, key);
     // correctProof = await backend.generateProof(witness);
     //expect(correctProof.proof instanceof Uint8Array).toBeTrue;
   });
