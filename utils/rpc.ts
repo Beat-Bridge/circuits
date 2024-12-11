@@ -45,6 +45,11 @@ export const foreignCallHandler = async (name: string, input: any[]) => {
   }
 };
 
+export const foreignCallHandleFailed = async (name: string, input: any[]) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+  () => [name, input];
+  return ["0"];
+};
 /**
  * Sends a request to store a key with the given id and token.
  *

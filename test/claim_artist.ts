@@ -2,13 +2,14 @@ import { expect } from "chai";
 import { BarretenbergBackend } from "@noir-lang/backend_barretenberg";
 import { Noir } from "@noir-lang/noir_js";
 import circuit from "../generated/cliam_artist.json";
-import { foreignCallHandler, createKey } from "../utils/rpc";
-import {  generateFixedLengthUUID } from "../utils";
+import { foreignCallHandler, createKey, foreignCallHandleFailed } from "../utils/rpc";
+import { generateFixedLengthUUID } from "../utils";
+import { ProofData } from "@noir-lang/types";
 
 describe("Noir Circuit Testing for claim_artist", async () => {
   let noir: Noir;
   let backend: BarretenbergBackend;
-  //let correctProof: ProofData;
+  let correctProof: ProofData;
   let randomKey: string;
 
   before(async () => {
@@ -35,7 +36,23 @@ describe("Noir Circuit Testing for claim_artist", async () => {
     const key = await createKey(randomKey, auth);
     const { witness } = await noir.execute(input, foreignCallHandler);
     console.log(witness, key);
-    // correctProof = await backend.generateProof(witness);
-    //expect(correctProof.proof instanceof Uint8Array).toBeTrue;
+    correctProof = await backend.generateProof(witness);
+    // expect(correctProof.proof).to.be.instanceOf(Uint8Array);
+  });
+
+  it("should not generate valid proof for incorrect input", async () => {
+    const input = {
+      key: randomKey,
+      artist_id: "12kjvw4e3gLp6qVHO65n7W",
+      limit: 0,
+      range: 10,
+    };
+    try {
+      await noir.execute(input, foreignCallHandleFailed);
+    } catch (err) {
+      expect(err).to.be.instanceOf(Error);
+      const error = err as Error;
+      expect(error.message).to.include("Cannot satisfy constraint");
+    }
   });
 });
