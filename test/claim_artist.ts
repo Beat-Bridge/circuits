@@ -3,7 +3,7 @@ import { BarretenbergBackend } from "@noir-lang/backend_barretenberg";
 import { Noir } from "@noir-lang/noir_js";
 import circuit from "../generated/cliam_artist.json";
 import { foreignCallHandler, createKey } from "../utils/rpc";
-import { delay, generateFixedLengthUUID } from "../utils";
+import {  generateFixedLengthUUID } from "../utils";
 
 describe("Noir Circuit Testing for claim_artist", async () => {
   let noir: Noir;
