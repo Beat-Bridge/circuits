@@ -1,6 +1,6 @@
 {
   "noir_version": "0.38.0+e784523a15c0c233a5a794f28498635b7ce86325",
-  "hash": 4662445271410031000,
+  "hash": 15980737004016007000,
   "abi": {
     "parameters": [
       {
@@ -42,10 +42,10 @@
     "error_types": {}
   },
   "bytecode": "H4sIAAAAAAAA/92aa1PTQBSGE5q2FAUqIN61XmH8lNCWpt+c8S6KFwRvQGlLuaow2h/Qny5Hdu3Lco6OQzLOcWc6m7z7ZM+bzSbZ3dT3DtP0we+u2fYPfhmTUxp0NJ/RBhgtw2gBo2UZLcdoeUYbZLQCow0x2ilGO81ow4w2wmijjFZktDOMNsZo44w2wWhnGW2S0c4x2nlGu8BoFxntEqNdZrQrjHaV0a4xWonRrjPaDUa7yWi3GO02o91htCmjUX+lFJjcXmdM9t65Z/LwZClKsK4wLY++Ao8DCjxmFHgMFHjMKvCYU+Axr8DjoAKPBQUehxR4PKXA42kFHocVeBxR4HE0QY927I4pab9FBW16RoHHMQUexxV4nFDg8awCj5MKPJ5T4PG8Ao8XFHi8qMDjJQUeLyvweEWBx6sKPF5T4LGkwON1BR5vKPB4U4HHWwo83k7BYxo+7yjxOZWgTx98TntOStr4NNRVDmcrlU5tphOVo2Y4U2/F1bBSbc3GURxV4+r6TFwud+JKXKu36rWwHlXKnWijWi9vgPGAMW4/yGZMOS2E00Kz/YBKC5G00EcLabRQRQtBtNBCCxm0OECTb5rc0uSRJmc0+aHJBQ3eaXBMg08a3NHgiQYn9PKnlyu9vEre4Qc6erjRw4NuTur81LGmvOPJh9yewxqUj5h8odts75a6e3ul9U5n/9dhLZMXTD4A1SX4HSUqMHaTqj8OZ9sF73izJOi/XPD639qTr38mtvXn0vEf5k0993v9+vFcbNyMw7nH+MA8AOaBwDwE5qHAPALmkcA8BuaxwDwB5onAPAXmqcA8A+aZwMwBMycwz4F5LjAvgHkhMPPAzAvMS2BeCswrYF4JzGtgXgvMG2DeCMwCMAsC8xaYtwKzCMyiwCwBsyQw74B5JzDvgXkvMB+A+SAwH4H5KDCfgPkkMMvALAvMCjArArMKzKrANIBpCMwaMGsC0wSmKTAtYFoC0wamLTDrwKwLTAeYjsBsALMhMJvAbArMFjBbArMNzLbA7ACz4zAF2Pa8pN+jlXK676EoHPaOvns8OBcbO59O7Mh34nlev82xzMYf8tJ85x/+3wfjWT9u+9gx2bBlen0/vlMW9I6fhy3LQpm9vjScnQPO7VvWh702aYwP47Cadr+b/Yf9rvY/9ju3LOgdP4+/7XfYt7JOmW0vSva5acsCKLPPS6p/yfGxCz5su487Oub5Xr9eGz8DWhZ8/IyJvFNWgLLAiTdk9gOIg3VZH1mHXzT7oybPwTH2+CITP+fEP+Kb0fC6uHVlGM3ydK3nzbb9r/Ay1OX2N/x/NBcb+w/yAwxP0/IJs91ufm20Pze3vzS6e/uN5rfu9vcuxnDvfUyB4Lco+Jp06s04+4FQr+fsF/9QPslouM09y+050rWw8+Wgd9TrPaOHJ0i1uL8mZO+DrHe0LTwnftbhm2Y/TZ+Uxn7jidrpBxcF81jgLwAA",
-  "debug_symbols": "lZDNCsMgEITfZc8ekqj151VKCSYxQRANxhRKyLtXS6Wk5JKLMC6z38xuMOhunVrjRr+AvG9gfa+i8S6pDUj1+Vtm5bJcogoRJCEMgXYDSFpVO4LRWA3yJvYHAlKfOWiNiwPXB0cSXTDWmqk9kKv8cHa2rBHiuwxT9ofn/LJDXHPsST1VMKqzOifNw9X1JXiS8TWXSak2B9/rYQ06l/z1wwnNKOI05ajzqUWDBEuIhHkD",
+  "debug_symbols": "lZDNCsMgEITfZc8eEqP151VKCSYxQRANxhRKyLtXS6Wk5JKLMC6z38xuMOhunVrjRr+AvG9gfa+i8S6pDUj1+Vtm5bJcogoRJKEUgXYDSFrxHcForAZ5E/sDAanPHBTj4iDVwZFEF4y1ZmoP5Co/nJ0tw0J8lzWU/eE5v+wQ1xx7Uk8VjOqszknzcHV9CZ5kfM1lUqrNwfd6WIPOJX/9moRmFHGactT51AIjwRIiYd4=",
   "file_map": {
     "69": {
-      "source": "// use claim_library::utils;\n\n#[oracle(can_claim_top_artist)]\nunconstrained fn can_claim_top_artist(_key: str<16>,_artist_id:str<22>,_time_range:u8, _list_range:u8 ) -> Field {}\n\nunconstrained fn call_can_claim_top_artist(key: str<16>,artist_id:str<22>,time_range:u8, list_range:u8 ) -> Field {\n    can_claim_top_artist(key,artist_id,time_range, list_range)\n}\n\nfn main(key: str<16>,artist_id:str<22>,limit:u8, range:u8) {\n    let claim_result =   call_can_claim_top_artist(key,artist_id,limit, range);\n    assert(claim_result  == 1);\n}\n\n\n#[test]\nfn test_main() {\n    let key: str<16> =\"2a4d2d1fbda14398\";\n    let artist_id:str<22> = \"4B4CQ84BBpHK5d02cWKUb0\";\n    let limit:u8 = 0;\n    let range:u8 = 10; \n    main(\n      key,artist_id,limit,range\n    );\n}",
+      "source": "// use claim_library::utils;\n\n#[oracle(can_claim_top_artist)]\nunconstrained fn can_claim_top_artist(_key: str<16>,_artist_id:str<22>,_time_range:u8, _list_range:u8 ) -> Field {}\n\nunconstrained fn call_can_claim_top_artist(key: str<16>,artist_id:str<22>,time_range:u8, list_range:u8 ) -> Field {\n    can_claim_top_artist(key,artist_id,time_range, list_range)\n}\n\nfn main(key: str<16>,artist_id:str<22>,limit:u8, range:u8) {\n    let claim_result =   unsafe {call_can_claim_top_artist(key,artist_id,limit, range)};\n    assert(claim_result  == 1);\n}\n\n\n#[test]\nfn test_main() {\n    let key: str<16> =\"2a4d2d1fbda14398\";\n    let artist_id:str<22> = \"4B4CQ84BBpHK5d02cWKUb0\";\n    let limit:u8 = 0;\n    let range:u8 = 10; \n    main(\n      key,artist_id,limit,range\n    );\n}",
       "path": "/home/daniel/circuits/circuits/cliam_artist/src/main.nr"
     }
   },

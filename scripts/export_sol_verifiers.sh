@@ -13,10 +13,9 @@ for d in circuits/*/ ; do
   echo $d
   cd $d
   nargo compile
-  # bb write_vk -b ./target/$(basename $d).json 
+  bb write_vk -b ./target/$(basename $d).json 
   bb contract
-  # # [ ! -d "foldername" ] && mkdir foldername
-  # mv contract/$(basename $d)/plonk_vk.sol ../../contracts/verifiers/$(basename $d).sol
-  # rm -rf contract/
+  mv target/contract.sol ../../contracts/verifiers/$(basename $d).sol
+  # rm  /contract.sol && vk
   cd ../..
 done
