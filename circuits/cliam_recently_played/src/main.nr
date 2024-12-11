@@ -8,7 +8,7 @@ unconstrained fn call_can_claim_top_artist(key: str<16>,track_id:str<22>,after:u
 
 
 fn main(key: str<16>,track_id:str<22>,after:u64, play_times:u8) {
-    let claim_result =   call_can_claim_top_artist(key,track_id,after,play_times);
+    let claim_result = unsafe{ call_can_claim_top_artist(key,track_id,after,play_times) };
     assert(claim_result  == 1);
 }
 
